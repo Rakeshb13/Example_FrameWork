@@ -18,11 +18,12 @@ public class DriverSetup {
 	WebDriver driver ;
 	public static ExtentReports report;
 	
-	public void configureReport() {
+	public ExtentReports configureReport() {
 		
 		ExtentSparkReporter sparkReporter = new ExtentSparkReporter(FrameworkConstants.REPORTS_PATH+JavaUtility.getTimeStamp()+".html");
 		report = new ExtentReports();
 		report.attachReporter(sparkReporter);
+		return report;
 	}
 	
 	public WebDriver invokeBrowser(String browserName) throws IOException {
